@@ -1,0 +1,7 @@
+apply from: 'build-lib.gradle'
+
+dependencies {
+    api(project(':module-common'))
+
+    implementation libraries.'spring-boot-starter-validation'
+}

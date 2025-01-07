@@ -1,0 +1,6 @@
+rootProject.name = 'multi-modules'
+include 'module-custom-validate'
+include 'module-common'
+include 'module-satoken'
+include 'module-springboot-expand'
+

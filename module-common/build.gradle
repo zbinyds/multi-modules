@@ -1,0 +1,13 @@
+apply from: 'build-lib.gradle'
+
+dependencies {
+    implementation libraries.'commons-lang3'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}

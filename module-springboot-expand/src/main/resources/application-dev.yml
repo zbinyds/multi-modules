@@ -1,0 +1,28 @@
+server:
+  port: 7502
+spring:
+  application:
+    name: app-kafka
+  kafka:
+    client-id: app-kafka
+    bootstrap-servers: ENC(jrMQvbryXDudpCfqfE5q2wWWQzuCnw72x3vlLBG2SPk=)  # Kafka 服务地址
+    consumer:
+      auto-offset-reset: earliest       # 从最早的消息开始消费
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+knife4j:
+  enable: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+encryptor:
+  key: HRQv9voExyEIo5GI6C62sNe0PvmalQE1D7+dxTGR3fY=
+  prefix: ENC(
+  suffix: )
+
+#  ef7c0476f2830921f378b9907e4cc441
+#  e78be4ca694e8ac96daf3754c394dca3

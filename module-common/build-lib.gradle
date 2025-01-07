@@ -1,0 +1,8 @@
+ext {
+    versions = [
+            commonlang3: "3.17.0"
+    ]
+    libraries = [
+            "commons-lang3": "org.apache.commons:commons-lang3:${versions.commonlang3}"
+    ]
+}

@@ -1,0 +1,19 @@
+apply from: 'build-lib.gradle'
+
+dependencies {
+    api(project(':module-common'))
+
+    implementation libraries.'spring-boot-starter-data-redis'
+    implementation libraries.'knife4j-openapi3-spring-boot-starter'
+
+    implementation libraries.'sa-token-spring-boot-starter'
+    implementation libraries.'sa-token-spring-aop'
+    implementation libraries.'sa-token-redis-jackson'
+    implementation libraries.'sa-token-jwt'
+
+    implementation libraries.'mybatis-plus-boot-starter'
+    runtimeOnly libraries.'mysql-connector-java'
+
+    implementation libraries.'xmm-oss'
+    implementation libraries.'jasypt-spring-boot-starter'
+}

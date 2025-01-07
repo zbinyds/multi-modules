@@ -1,0 +1,32 @@
+ext {
+    versions = [
+            knife4j              : "4.4.0",
+
+            satoken              : "1.39.0",
+            satoken_aop          : "1.39.0",
+            satoken_redis_jackson: "1.39.0",
+            sa_token_jwt         : "1.39.0",
+
+            mybatis_plus         : "3.5.2",
+            mysql_connector      : "8.0.32",
+
+            xmm_oss              : "1.3-SNAPSHOT",
+            jasypt               : "3.0.5"
+    ]
+    libraries = [
+            "spring-boot-starter-data-redis"      : "org.springframework.boot:spring-boot-starter-data-redis",
+            "knife4j-openapi3-spring-boot-starter": "com.github.xiaoymin:knife4j-openapi3-spring-boot-starter:${ext.versions.knife4j}",
+
+            "sa-token-spring-boot-starter"        : "cn.dev33:sa-token-spring-boot-starter:${ext.versions.satoken}",
+            "sa-token-spring-aop"                 : "cn.dev33:sa-token-spring-aop:${ext.versions.satoken_aop}",
+            "sa-token-redis-jackson"              : "cn.dev33:sa-token-redis-jackson:${ext.versions.satoken_redis_jackson}",
+            "sa-token-jwt"                        : "cn.dev33:sa-token-jwt:${ext.versions.sa_token_jwt}",
+
+            "mybatis-plus-boot-starter"           : "com.baomidou:mybatis-plus-boot-starter:${ext.versions.mybatis_plus}",
+            "mysql-connector-java"                : "mysql:mysql-connector-java:${ext.versions.mysql_connector}",
+
+            "xmm-oss"                             : "com.xmm:xmm-oss-boot-starter:${ext.versions.xmm_oss}",
+
+            "jasypt-spring-boot-starter"          : "com.github.ulisesbocchio:jasypt-spring-boot-starter:${ext.versions.jasypt}"
+    ]
+}

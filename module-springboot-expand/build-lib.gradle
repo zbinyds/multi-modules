@@ -1,0 +1,10 @@
+ext {
+    versions = [
+            knife4j: "4.4.0",
+            kafka  : "2.8.4"
+    ]
+    libraries = [
+            "knife4j-openapi3-spring-boot-starter": "com.github.xiaoymin:knife4j-openapi3-spring-boot-starter:${ext.versions.knife4j}",
+            "kafka"                               : "org.springframework.kafka:spring-kafka:${ext.versions.kafka}"
+    ]
+}

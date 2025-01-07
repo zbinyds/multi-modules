@@ -1,0 +1,65 @@
+server:
+  port: 7501
+spring:
+  application:
+    name: satoken
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-test-query: SELECT 1
+      max-lifetime: 30000
+      maximum-pool-size: 10
+      minimum-idle: 3
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:192.168.1.10}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:sys_user}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:123qwe!@#}
+  redis:
+    database: 0
+    host: ${REDIS_HOST:192.168.1.10}
+    password: ${REDIS_PASSWORD:brilliant123}
+    port: ${REDIS_PORT:6379}
+    timeout: 5000ms
+    connect-timeout: 3000ms
+
+sa-token:
+  jwt-secret-key: satoken_test
+  timeout: 86400
+#  is-read-body: false
+#  is-read-cookie: false
+  is-write-header: true
+  is-log: true
+  is-print: false
+
+knife4j:
+  enable: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  group-configs:
+    - group: 'user'
+      paths-to-match: '/user/**'
+      packages-to-scan: com.zbinyds.learn.satoken
+      paths-to-exclude:
+        - '/user/info'
+        - '/user/check'
+    - group: 'auth'
+      paths-to-match: '/auth/**'
+      packages-to-scan: com.zbinyds.learn.satoken
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+
+xmm:
+  oss-type: aliyun
+  access-key: ENC(GdRuCZqlXx813Y0flfNrRtWrfG1RWakIS3W1GoHT2616dcd02aSCMczQgjqthZETwssxUgrs5rDz+JGM+WcDaw==)
+  access-id: ENC(L1Xmjn/yWOLi+7AY/qbbQmWk6mU3wwr+r6vuPq8GAY6SIddwi2auFKu4cS/aXMp/zmPIpBgzm6eWAelnQi76rQ==)
+  bucket: xmm-oss-service
+  endpoint: oss-cn-shanghai.aliyuncs.com
+
+jasypt:
+  encryptor:
+    password: 123456

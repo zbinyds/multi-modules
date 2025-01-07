@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbinyds.learn.satoken.mapper.SysResourceMapper">
+
+    <resultMap id="BaseResultMap" type="com.zbinyds.learn.satoken.model.entity.SysResource">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="parentId" column="parent_id" jdbcType="BIGINT"/>
+            <result property="parentIds" column="parent_ids" jdbcType="VARCHAR"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="permission" column="permission" jdbcType="VARCHAR"/>
+            <result property="path" column="path" jdbcType="VARCHAR"/>
+            <result property="componentName" column="component_name" jdbcType="VARCHAR"/>
+            <result property="componentPath" column="component_path" jdbcType="VARCHAR"/>
+            <result property="icon" column="icon" jdbcType="VARCHAR"/>
+            <result property="sort" column="sort" jdbcType="VARCHAR"/>
+            <result property="menuCacheFlag" column="menu_cache_flag" jdbcType="TINYINT"/>
+            <result property="menuHiddenFlag" column="menu_hidden_flag" jdbcType="TINYINT"/>
+            <result property="del" column="del" jdbcType="TINYINT"/>
+            <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+            <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,parent_id,
+        parent_ids,title,permission,
+        path,component_name,component_path,
+        icon,sort,menu_cache_flag,
+        menu_hidden_flag,del,created_time,
+        updated_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sys_resource
+        where  id = #{id,jdbcType=BIGINT} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from sys_resource
+        where  id = #{id,jdbcType=BIGINT} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zbinyds.learn.satoken.model.entity.SysResource" useGeneratedKeys="true">
+        insert into sys_resource
+        ( id,type,parent_id
+        ,parent_ids,title,permission
+        ,path,component_name,component_path
+        ,icon,sort,menu_cache_flag
+        ,menu_hidden_flag,del,created_time
+        ,updated_time)
+        values (#{id,jdbcType=BIGINT},#{type,jdbcType=INTEGER},#{parentId,jdbcType=BIGINT}
+        ,#{parentIds,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{permission,jdbcType=VARCHAR}
+        ,#{path,jdbcType=VARCHAR},#{componentName,jdbcType=VARCHAR},#{componentPath,jdbcType=VARCHAR}
+        ,#{icon,jdbcType=VARCHAR},#{sort,jdbcType=VARCHAR},#{menuCacheFlag,jdbcType=TINYINT}
+        ,#{menuHiddenFlag,jdbcType=TINYINT},#{del,jdbcType=TINYINT},#{createdTime,jdbcType=TIMESTAMP}
+        ,#{updatedTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zbinyds.learn.satoken.model.entity.SysResource" useGeneratedKeys="true">
+        insert into sys_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="type != null">type,</if>
+                <if test="parentId != null">parent_id,</if>
+                <if test="parentIds != null">parent_ids,</if>
+                <if test="title != null">title,</if>
+                <if test="permission != null">permission,</if>
+                <if test="path != null">path,</if>
+                <if test="componentName != null">component_name,</if>
+                <if test="componentPath != null">component_path,</if>
+                <if test="icon != null">icon,</if>
+                <if test="sort != null">sort,</if>
+                <if test="menuCacheFlag != null">menu_cache_flag,</if>
+                <if test="menuHiddenFlag != null">menu_hidden_flag,</if>
+                <if test="del != null">del,</if>
+                <if test="createdTime != null">created_time,</if>
+                <if test="updatedTime != null">updated_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=BIGINT},</if>
+                <if test="type != null">#{type,jdbcType=INTEGER},</if>
+                <if test="parentId != null">#{parentId,jdbcType=BIGINT},</if>
+                <if test="parentIds != null">#{parentIds,jdbcType=VARCHAR},</if>
+                <if test="title != null">#{title,jdbcType=VARCHAR},</if>
+                <if test="permission != null">#{permission,jdbcType=VARCHAR},</if>
+                <if test="path != null">#{path,jdbcType=VARCHAR},</if>
+                <if test="componentName != null">#{componentName,jdbcType=VARCHAR},</if>
+                <if test="componentPath != null">#{componentPath,jdbcType=VARCHAR},</if>
+                <if test="icon != null">#{icon,jdbcType=VARCHAR},</if>
+                <if test="sort != null">#{sort,jdbcType=VARCHAR},</if>
+                <if test="menuCacheFlag != null">#{menuCacheFlag,jdbcType=TINYINT},</if>
+                <if test="menuHiddenFlag != null">#{menuHiddenFlag,jdbcType=TINYINT},</if>
+                <if test="del != null">#{del,jdbcType=TINYINT},</if>
+                <if test="createdTime != null">#{createdTime,jdbcType=TIMESTAMP},</if>
+                <if test="updatedTime != null">#{updatedTime,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zbinyds.learn.satoken.model.entity.SysResource">
+        update sys_resource
+        <set>
+                <if test="type != null">
+                    type = #{type,jdbcType=INTEGER},
+                </if>
+                <if test="parentId != null">
+                    parent_id = #{parentId,jdbcType=BIGINT},
+                </if>
+                <if test="parentIds != null">
+                    parent_ids = #{parentIds,jdbcType=VARCHAR},
+                </if>
+                <if test="title != null">
+                    title = #{title,jdbcType=VARCHAR},
+                </if>
+                <if test="permission != null">
+                    permission = #{permission,jdbcType=VARCHAR},
+                </if>
+                <if test="path != null">
+                    path = #{path,jdbcType=VARCHAR},
+                </if>
+                <if test="componentName != null">
+                    component_name = #{componentName,jdbcType=VARCHAR},
+                </if>
+                <if test="componentPath != null">
+                    component_path = #{componentPath,jdbcType=VARCHAR},
+                </if>
+                <if test="icon != null">
+                    icon = #{icon,jdbcType=VARCHAR},
+                </if>
+                <if test="sort != null">
+                    sort = #{sort,jdbcType=VARCHAR},
+                </if>
+                <if test="menuCacheFlag != null">
+                    menu_cache_flag = #{menuCacheFlag,jdbcType=TINYINT},
+                </if>
+                <if test="menuHiddenFlag != null">
+                    menu_hidden_flag = #{menuHiddenFlag,jdbcType=TINYINT},
+                </if>
+                <if test="del != null">
+                    del = #{del,jdbcType=TINYINT},
+                </if>
+                <if test="createdTime != null">
+                    created_time = #{createdTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updatedTime != null">
+                    updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=BIGINT} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zbinyds.learn.satoken.model.entity.SysResource">
+        update sys_resource
+        set 
+            type =  #{type,jdbcType=INTEGER},
+            parent_id =  #{parentId,jdbcType=BIGINT},
+            parent_ids =  #{parentIds,jdbcType=VARCHAR},
+            title =  #{title,jdbcType=VARCHAR},
+            permission =  #{permission,jdbcType=VARCHAR},
+            path =  #{path,jdbcType=VARCHAR},
+            component_name =  #{componentName,jdbcType=VARCHAR},
+            component_path =  #{componentPath,jdbcType=VARCHAR},
+            icon =  #{icon,jdbcType=VARCHAR},
+            sort =  #{sort,jdbcType=VARCHAR},
+            menu_cache_flag =  #{menuCacheFlag,jdbcType=TINYINT},
+            menu_hidden_flag =  #{menuHiddenFlag,jdbcType=TINYINT},
+            del =  #{del,jdbcType=TINYINT},
+            created_time =  #{createdTime,jdbcType=TIMESTAMP},
+            updated_time =  #{updatedTime,jdbcType=TIMESTAMP}
+        where   id = #{id,jdbcType=BIGINT} 
+    </update>
+</mapper>

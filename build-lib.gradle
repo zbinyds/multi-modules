@@ -1,0 +1,30 @@
+ext {
+    versions = [
+            lombok  : "1.18.22",
+            fastjson: "2.0.32"
+    ]
+    libraries = [
+            "spring-boot-starter-web"            : "org.springframework.boot:spring-boot-starter-web",
+            "spring-boot-starter-test"           : "org.springframework.boot:spring-boot-starter-test",
+            "spring-boot-autoconfigure"          : "org.springframework.boot:spring-boot-autoconfigure",
+            "spring-boot-configuration-processor": "org.springframework.boot:spring-boot-configuration-processor",
+
+            "lombok"                             : "org.projectlombok:lombok:${ext.versions.lombok}",
+            "fastjson"                           : "com.alibaba:fastjson:${ext.versions.fastjson}"
+    ]
+}
+
+/*ext.versions = [
+        lombok  : "1.18.22",
+        fastjson: "2.0.32"
+]
+
+ext.lib = [
+        "spring-boot-starter-web"            : "org.springframework.boot:spring-boot-starter-web",
+        "spring-boot-starter-test"           : "org.springframework.boot:spring-boot-starter-test",
+        "spring-boot-autoconfigure"          : "org.springframework.boot:spring-boot-autoconfigure",
+        "spring-boot-configuration-processor": "org.springframework.boot:spring-boot-configuration-processor",
+
+        "lombok"                             : "org.projectlombok:lombok:${ext.versions.lombok}",
+        "fastjson"                           : "com.alibaba:fastjson:${ext.versions.fastjson}"
+]*/
