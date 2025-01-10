@@ -24,5 +24,19 @@ encryptor:
   prefix: ENC(
   suffix: )
 
-#  ef7c0476f2830921f378b9907e4cc441
-#  e78be4ca694e8ac96daf3754c394dca3
+thread-pool:
+  executors:
+    - executor-name: default
+      core-size: 10
+      max-size: 10
+      queue-capacity: 100
+      keep-alive-time: 0
+      keep-alive-time-unit: MILLISECONDS
+      reject-policy: CALLER_RUNS
+    - executor-name: file-upload
+      core-size: 10
+      max-size: 10
+      queue-capacity: 100
+      keep-alive-time: 0
+      keep-alive-time-unit: MILLISECONDS
+      reject-policy: CALLER_RUNS
