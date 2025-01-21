@@ -1,0 +1,10 @@
+ext {
+    versions = [
+            knife4j: "4.4.0",
+            minio  : "8.2.2"
+    ]
+    libraries = [
+            "knife4j-openapi3-spring-boot-starter": "com.github.xiaoymin:knife4j-openapi3-spring-boot-starter:${ext.versions.knife4j}",
+            "minio"                               : "io.minio:minio:${ext.versions.minio}"
+    ]
+}

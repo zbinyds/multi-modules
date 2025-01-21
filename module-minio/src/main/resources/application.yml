@@ -1,0 +1,18 @@
+server:
+  port: 7503
+spring:
+  application:
+    name: minio
+  servlet:
+    multipart:
+      max-file-size: 10240MB
+      max-request-size: 10240MB
+
+minio:
+  endpoint: http://127.0.0.1:9000
+  accessKey: sysadmin
+  secretKey: 123qwe!@#
+  bucketName: test-bucket
+
+knife4j:
+  enable: true

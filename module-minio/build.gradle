@@ -1,0 +1,8 @@
+apply from: 'build-lib.gradle'
+
+dependencies {
+    api(project(':module-common'))
+
+    implementation libraries.'knife4j-openapi3-spring-boot-starter'
+    implementation libraries.'minio'
+}
