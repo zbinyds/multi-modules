@@ -1,0 +1,12 @@
+server:
+  port: 8066
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  ai:
+    openai:
+      base-url: https://api.siliconflow.cn
+      api-key: sk-klmgwobnttfcjglcsrkahohzwflcjlhjouzqokecwylznpmx
+      chat:
+        options:
+          model: deepseek-ai/DeepSeek-V3
