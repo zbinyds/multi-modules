@@ -41,7 +41,7 @@ public class Knife4jConfiguration {
 - 使用方式：
   - knife4j封装的 http://host:port/doc.html 访问即可；
   - springdoc原生的 http://host:port/swagger-ui.html 访问
-- 需要放行的静态资源：["/doc.html", "/webjars/**", "/swagger-resources/**", "/v3/**"]
+- 需要放行的静态资源：["/doc.html", "/webjars/**", "/swagger-resources/**", "/v3/api-docs/**"]
 
 satoken
 - 根据需求查阅官方文档即可。地址：https://sa-token.cc/doc.html#/
