@@ -1,0 +1,18 @@
+ext {
+    versions = [
+            knife4j     : "4.4.0",
+            commonslang3: "3.17.0",
+            mybatisplus : "3.5.11",
+            mysql       : "8.0.32",
+            aspect      : "1.9.19",
+            hutool      : "5.8.20"
+    ]
+    libraries = [
+            "knife4j-openapi3-spring-boot-starter": "com.github.xiaoymin:knife4j-openapi3-jakarta-spring-boot-starter:${ext.versions.knife4j}",
+            "commons-lang3"                       : "org.apache.commons:commons-lang3:${versions.commonslang3}",
+            "mybatis-plus"                        : "com.baomidou:mybatis-plus-boot-starter:${versions.mybatisplus}",
+            "mysql"                               : "mysql:mysql-connector-java:${versions.mysql}",
+            "aspect"                              : "org.aspectj:aspectjweaver:${versions.aspect}",
+            "hutool"                              : "cn.hutool:hutool-core:${versions.hutool}"
+    ]
+}

@@ -4,4 +4,5 @@ include 'module-common'
 include 'module-satoken'
 include 'module-springboot-expand'
 include 'module-minio'
+include 'module-localmessage'
 
