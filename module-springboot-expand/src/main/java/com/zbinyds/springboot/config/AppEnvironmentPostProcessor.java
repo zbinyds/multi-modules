@@ -61,7 +61,9 @@ public class AppEnvironmentPostProcessor implements EnvironmentPostProcessor {
             }
         }
         // 自定义PropertySource 优先级设置为最高 用解密后的配置项覆盖配置文件中同key的配置项 从而实现解密
-        environment.getPropertySources().addFirst(encryptorPropertySource);
+        if (!replaceSource.isEmpty()) {
+            environment.getPropertySources().addFirst(encryptorPropertySource);
+        }
     }
 
     @SuppressWarnings("unchecked")
