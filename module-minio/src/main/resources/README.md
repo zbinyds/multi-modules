@@ -3,14 +3,15 @@ minio
     - docker pull minio/minio
     - docker run
         ```
-        docker run -p 9000:9000 -p 9001:9001 \
+        docker run -d
+        -p 19000:9000 -p 19001:9001 \
         --restart=always \
+        --name minio \
         -e "MINIO_ROOT_USER=sysadmin" \
-        -e "MINIO_ROOT_PASSWORD=123qwe!@#" \
-        -v D:\zbinyds\minio\data:/data \
-        -v D:\zbinyds\minio\config:/root/.minio \
-        minio/minio server /data --console-address "127.0.0.1:9001" \
-        --name minio -d
+        -e "MINIO_ROOT_PASSWORD=123456" \
+        -v /opt/minio/data:/data \
+        -v /opt/minio/config:/root/.minio \
+        minio/minio server /data --console-address "127.0.0.1:9001"
       ```
     - minio页面地址：http://127.0.0.1:9001
 - 引入依赖
