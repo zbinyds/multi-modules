@@ -1,5 +1,5 @@
 server:
-  port: 7503
+  port: 7504
 spring:
   application:
     name: app-local-message
