@@ -1,0 +1,38 @@
+server:
+  port: 7506
+
+spring:
+  kafka:
+    client-id: module-kafka
+    bootstrap-servers: 192.168.1.145:9092
+    consumer:
+      # 设置是否自动提交偏移量
+      enable-auto-commit: false
+      # 设置读取偏移量的位置
+      auto-offset-reset: earliest
+      # 设置消费者消费消息隔离级别
+      isolation-level: READ_COMMITTED
+      # 设置消费者组id
+      group-id: module-kafka-consumer
+      # 序列化/反序列化配置
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        # 允许反序列化的包路径，和 value-deserializer 设置有关
+        spring.json.trusted.packages: com.zbinyds.springkafka.*
+    producer:
+      # 设置事务id的前缀。根据此值，KafkaAutoConfiguration自动注入kafka事务管理器
+      transaction-id-prefix: module-kafka-tx-
+      # 序列化/反序列化配置
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        # 设置生产者幂等性。acks为all并且具备重试次数时 幂等性才有意义
+        enable.idempotence: true
+      # 设置重试次数。acks为all时重试次数才有意义
+      retries: 5
+      # 设置生产者消息确认机制
+      acks: all
+    # 设置消费消息时偏移量的确认机制
+    listener:
+      ack-mode: MANUAL_IMMEDIATE # 立刻提交偏移量
